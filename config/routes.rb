@@ -1,5 +1,6 @@
 Rankme::Application.routes.draw do
   get "home/my_rank"
+  resources :ratings
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

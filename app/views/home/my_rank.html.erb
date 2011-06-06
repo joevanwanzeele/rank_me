@@ -1,2 +1,15 @@
-<h1>My rank is...</h1>
-<p><%=@rank%></p>
+<h1>Calculate New Ratings</h1>
+
+<%= form_for @rating do |f| %>
+<p>
+  <%= f.label :winner_rating, "Winner Rating" %>:
+  <%= f.text_field :winner_rating %><br />
+</p>
+<p>
+  <%= f.label :loser_rating %>:
+  <%= f.text_field :loser_rating %><br />
+</p>
+<p>
+  <%= f.submit "Generate New Ratings" %>
+</p>
+<% end %>
