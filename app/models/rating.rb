@@ -3,7 +3,7 @@ class Rating
   include ActiveModel::Conversion
   extend ActiveModel::Naming
   
-  attr_accessor :winner_rating, :loser_rating
+  attr_accessor :winner_rating, :loser_rating, :new_winner_rating, :new_loser_rating
 
   validates_presence_of :winner_rating, :loser_rating
   

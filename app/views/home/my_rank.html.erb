@@ -1,15 +1,22 @@
+
 <h1>Calculate New Ratings</h1>
 
-<%= form_for @rating do |f| %>
+<%= form_tag( {:controller => 'home', :action => 'my_rank' }, :method => 'get') do %>
 <p>
-  <%= f.label :winner_rating, "Winner Rating" %>:
-  <%= f.text_field :winner_rating %><br />
+  Winner Rating:
+  <%= text_field_tag :winner_rating %><br />
 </p>
 <p>
-  <%= f.label :loser_rating %>:
-  <%= f.text_field :loser_rating %><br />
+  Loser Rating:
+  <%= text_field_tag :loser_rating %><br />
 </p>
 <p>
-  <%= f.submit "Generate New Ratings" %>
+  <%= submit_tag "Generate New Ratings" %>
 </p>
 <% end %>
+<p>
+  <%= @new_winner_rating %><br />
+</p>
+<p>
+  <%= @new_loser_rating %><br />
+</p>
