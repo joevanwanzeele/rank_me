@@ -1,3 +1,5 @@
+require 'rating_calculator'
+
 class HomeController < ApplicationController
 
   def my_rank
@@ -12,9 +14,9 @@ class HomeController < ApplicationController
     if @winner_rating and @loser_rating then
       @calculator = RatingCalculator.new
       @calculator.calculate(Integer(@winner_rating), Integer(@loser_rating))
-
-      @new_winner_rating = "New Winner Rating: " + @calculator.new_winner_rating.to_s
-      @new_loser_rating = "New Loser Rating: " + @calculator.new_loser_rating.to_s
+	  
+	  @winner_rating = @calculator.new_winner_rating
+	  @loser_rating = @calculator.new_loser_rating
     end
 
   end
