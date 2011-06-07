@@ -37,9 +37,7 @@ class RatingCalculator
         exchange = 0
       end
 
-      @new_winner_rating = winner_rating + exchange      
-      @new_loser_rating = loser_rating - exchange      
-    else
+	  else
       
       if abs_diff <= 12 then
         exchange = 8
@@ -64,9 +62,9 @@ class RatingCalculator
       else
         exchange = 50
       end
-      
-      @new_winner_rating = winner_rating - exchange
-      @new_loser_rating = loser_rating + exchange
-    end
+	end
+  
+	@new_winner_rating = winner_rating + exchange      
+	@new_loser_rating = loser_rating - exchange
   end
 end
