@@ -1,4 +1,6 @@
 Rankme::Application.routes.draw do
+  resources :players
+
   get "home/my_rank"
   resources :ratings
 
