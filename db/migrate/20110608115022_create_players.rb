@@ -2,7 +2,7 @@ class CreatePlayers < ActiveRecord::Migration
   def self.up
     create_table :players do |t|
       t.string :name
-      t.int :rating
+      t.integer :rating
 
       t.timestamps
     end
