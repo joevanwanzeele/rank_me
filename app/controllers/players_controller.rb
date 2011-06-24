@@ -9,6 +9,18 @@ class PlayersController < ApplicationController
       format.xml  { render :xml => @players }
     end
   end
+  
+  # GET /players/search/john
+  # GET /players/search/john.xml
+  # GET /players/search/john.json
+  def search
+	@players = Player.all(:conditions => ["name like ?", "#{params[:query]}%"])
+	
+	respond_to do |format|
+		format.xml { render :xml => @players }
+		format.json { render :json => @players }
+	end
+  end
 
   # GET /players/1
   # GET /players/1.xml
