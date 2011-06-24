@@ -1,24 +1,57 @@
-
 <h1>Calculate New Ratings</h1>
+
+<script>
+	$(function() {
+		var handler = {
+			source: function( request, response ) {
+				$.ajax({
+					url: "/players/search/1",
+					dataType: "json",
+					data: {
+						query: request.term
+					},
+					success: function( data ) {
+						response( $.map( data, function( item ) {
+							return {
+								label: item.player.name,
+								value: item.player.name,
+								player_id: item.player.id
+							}
+						}));
+					}
+				});
+			},
+			minLength: 2,
+			select: function( event, ui ) {
+				$('#' + event.target.id + '_id').val(ui.item.player_id);
+			}
+		};
+		
+		$( "#winner" ).autocomplete(handler);
+		$( "#loser" ).autocomplete(handler);
+	});
+</script>
 
 <%= form_tag( {:controller => 'home', :action => 'my_rank' }, :method => 'get') do %>
 <p>
-  Winner Rating:
-  <%= text_field_tag :winner_rating, @winner_rating %><br />
+  Winner:
+  <%= text_field_tag :winner, @winner %><br />
+  <%= hidden_field_tag :winner_id %><br />
 </p>
 <p>
-  Loser Rating:
-  <%= text_field_tag :loser_rating, @loser_rating %><br />
+  Loser:
+  <%= text_field_tag :loser, @loser %><br />
+  <%= hidden_field_tag :loser_id %><br />
 </p>
 <p>
   <%= submit_tag "Generate New Ratings" %>
 </p>
 <% end %>
 <p>
-  <%= 'New Winner Rating:  ' + @winner_rating.to_s if @winner_rating %><br />
+  <%= @winner_rating if @winner_rating %><br />
 </p>
 <p>
-  <%= 'New Loser Rating:  ' + @loser_rating.to_s if @loser_rating %><br />
+  <%= @loser_rating if @loser_rating %><br />
 </p>
 
 <p>
