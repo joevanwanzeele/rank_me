@@ -8,8 +8,71 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-
-<%= yield %>
-
+<div id="wrapper">
+	<div id="menu">
+		<ul>
+			<li><%= link_to "Home", "/" %></li>
+			<li><%= link_to "Rankings", players_path %></li>
+			<li><%= link_to "Games", :controller => "home", :action => "my_rank" %></li>
+		</ul>
+	</div>
+	<!-- end #menu -->
+	<div id="header">
+		<div id="logo">
+			<h1><a href="#">Rank.Me</a></h1>
+		</div>
+		<div id="search">
+			<form method="get" action="">
+				<fieldset>
+					<input type="text" name="s" id="search-text" size="15" value="enter keywords here..." />
+					<input type="submit" id="search-submit" value="GO" />
+				</fieldset>
+			</form>
+		</div>
+	</div>
+	<div id="splash">&nbsp;</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+				<div id="content">
+					<div class="post">
+						<%= yield %>
+					</div>
+					<div style="clear: both;">&nbsp;</div>
+				</div>
+				<!-- end #content -->
+				<div id="sidebar">
+					<ul>
+						<li>
+							<h2>Rankings</h2>
+							<p>Mauris vitae nisl nec metus placerat perdiet est. Phasellus dapibus semper consectetuer hendrerit.</p>
+						</li>
+						<li>
+							<h2>Links</h2>
+							<ul>
+								<li><a href="#">Aliquam libero</a></li>
+								<li><a href="#">Consectetuer adipiscing elit</a></li>
+								<li><a href="#">Metus aliquam pellentesque</a></li>
+								<li><a href="#">Suspendisse iaculis mauris</a></li>
+								<li><a href="#">Urnanet non molestie semper</a></li>
+								<li><a href="#">Proin gravida orci porttitor</a></li>
+							</ul>
+						</li>						
+					</ul>
+				</div>
+				<!-- end #sidebar -->
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer-wrapper">
+	<div id="footer">
+		<p>Copyright (c) 2011 Rank.Me. All rights reserved. Design by <a href="http://www.freecsstemplates.org/"> CSS Templates</a>.</p>
+	</div>
+	<!-- end #footer -->
+</div>
 </body>
 </html>
