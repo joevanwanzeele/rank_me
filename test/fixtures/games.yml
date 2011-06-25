@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  timestamp: 
+  winner: 
+  winner_rating_prior: 
+  loser: 
+  loser_rating_prior: 1
+
+two:
+  timestamp: 
+  winner: 
+  winner_rating_prior: 
+  loser: 
+  loser_rating_prior: 1
