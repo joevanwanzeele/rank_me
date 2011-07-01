@@ -13,6 +13,9 @@ class HomeController < ApplicationController
 			match = Match.new(:winner => @winning_player.id, :loser => @losing_player.id)
 			match.save
 			
+			RankingHistory.new(:player => @winning_player, :match => match, :previous_rating => @winning_player.rating).save
+			RankingHistory.new(:player => @losing_player, :match => match, :previous_rating => @losing_player.rating).save
+			
 			@calculator = RatingCalculator.new
 			@calculator.calculate(@winning_player.rating, @losing_player.rating)
 			

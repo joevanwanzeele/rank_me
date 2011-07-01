@@ -20,6 +20,21 @@
   <%= @player.losses.count %>
 </p>
 
+<table>
+	<tr>
+		<th>Result</th>
+		<th>Rating</th>
+		<th>Date</th>
+	</tr>
+	<% @player.ranks.order(:created_at).reverse.each do |rank| %>
+		<tr>
+			<td><%= rank.match.winner == @player.id ? "W" : "L" %></td>
+			<td><%= rank.previous_rating %></td>
+			<td><%= rank.created_at %></td>
+		</tr>
+	<% end %>
+</table>
+
 
 <%= link_to 'Edit', edit_player_path(@player) %> |
 <%= link_to 'Back', players_path %>
