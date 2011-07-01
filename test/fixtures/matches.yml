@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  winner: 1
+  loser: 1
+
+two:
+  winner: 1
+  loser: 1

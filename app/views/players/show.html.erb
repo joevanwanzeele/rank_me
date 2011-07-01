@@ -10,6 +10,16 @@
   <%= @player.rating %>
 </p>
 
+<p>
+  <b>Wins:</b>
+  <%= @player.wins.count %>
+</p>
+
+<p>
+  <b>Losses:</b>
+  <%= @player.losses.count %>
+</p>
+
 
 <%= link_to 'Edit', edit_player_path(@player) %> |
 <%= link_to 'Back', players_path %>

@@ -10,13 +10,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110625052209) do
+ActiveRecord::Schema.define(:version => 20110630115453) do
 
-  create_table "games", :force => true do |t|
+  create_table "matches", :force => true do |t|
     t.integer  "winner"
-    t.integer  "winner_rating_prior"
     t.integer  "loser"
-    t.integer  "loser_rating_prior"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
