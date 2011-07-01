@@ -26,7 +26,7 @@
 		<th>Rating</th>
 		<th>Date</th>
 	</tr>
-	<% @player.ranks.order(:created_at).reverse.each do |rank| %>
+	<% @player.ranks.find(:all, :order => "created_at desc", :limit => 10).each do |rank| %>
 		<tr>
 			<td><%= rank.match.winner == @player.id ? "W" : "L" %></td>
 			<td><%= rank.previous_rating %></td>
